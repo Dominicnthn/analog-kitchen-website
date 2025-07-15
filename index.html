@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meatball Lounge x Analog Kitchen | Seoul</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C41E3A',
+                        secondary: '#1A1A1A',
+                        accent: '#D9A566',
+                        light: '#F5F0E6'
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/meatball-lounge-red-led-ball.jpg .png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-item:hover .menu-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .reservation-form input, 
+        .reservation-form textarea, 
+        .reservation-form select {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .reservation-form input:focus, 
+        .reservation-form textarea:focus, 
+        .reservation-form select:focus {
+            outline: none;
+            border-color: #D9A566;
+        }
+        
+        .reservation-form input::placeholder, 
+        .reservation-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        
+        .map-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .nav-scrolled {
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-overlay {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-secondary text-light font-body">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="text-accent">Meatball</span> <span class="text-white">Lounge</span> 
+                <span class="text-primary">×</span> 
+                <span class="text-white">Analog</span> <span class="text-accent">Kitchen</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-light hover:text-accent transition">About</a>
+                <a href="#menu" class="text-light hover:text-accent transition">Menu</a>
+                <a href="#gallery" class="text-light hover:text-accent transition">Gallery</a>
+                <a href="#contact" class="text-light hover:text-accent transition">Contact</a>
+            </div>
+            <button class="md:hidden text-light">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center">
+        <div class="container mx-auto px-4 py-20">
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white mb-6">
+                <span class="block">Meatball Lounge</span>
+                <span class="text-primary">×</span>
+                <span class="block">Analog Kitchen</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-light max-w-3xl mx-auto mb-10">
+                Where modern Seoul meets cozy comfort in every meatball fusion dish
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Explore Our Menu
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-accent hover:bg-accent hover:bg-opacity-20 text-accent font-bold py-3 px-8 rounded-full transition duration-300">
+                    Make Reservation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold text-white mb-4">Hall of Fame</h3>
+                    <img src="Images/meatball-hall-of-fame.jpg" alt="Meatball Lounge Hall of Fame">
+
+
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="font-display text-4xl md:text-5xl text-white mb-6">
+                        Our <span class="text-accent">Vibe</span>
+                    </h2>
+                    <p class="text-lg text-light mb-6">
+                        Nestled in the heart of Seoul, Meatball Lounge x Analog Kitchen blends modern sophistication with cozy comfort. Our space features warm lighting, exposed brick walls, and analog-inspired decor that creates an inviting atmosphere for any occasion.
+                    </p>
+                    <p class="text-lg text-light mb-6">
+                        We specialize in innovative meatball fusion dishes that combine traditional Korean flavors with global culinary techniques. Each meatball is handcrafted with premium ingredients and served with creative accompaniments that elevate this humble comfort food to an art form.
+                    </p>
+                    <div class="flex items-center mt-8">
+                        <div class="mr-6 text-accent text-4xl">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl text-white font-bold">Culinary Philosophy</h3>
+                            <p class="text-light">Tradition meets innovation in every bite</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-secondary bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl text-white mb-4">
+                    Signature <span class="text-primary">Meatballs</span>
+                </h2>
+                <p class="text-light max-w-2xl mx-auto">
+                    Our rotating menu features seasonal specialties alongside beloved classics. Each dish is crafted with locally-sourced ingredients whenever possible.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- All menu items removed as requested -->
+            </div>
+            
+            <!-- 'View Full Menu' button removed as requested -->
+        </div>
+    </section>
+
+    <!-- Pasta Menu Section -->
+    <section id="pasta-menu" class="py-20 bg-secondary bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl text-white mb-4">
+                    Pasta <span class="text-primary">Menu</span>
+                </h2>
+                <p class="text-light max-w-2xl mx-auto">
+                    Discover our signature pasta dish, crafted with care and premium ingredients.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 400px;">
+                    <div class="relative">
+                        <!-- Replace the src below with the actual image path if uploaded -->
+                        <img src="Images/ragu-cream-pasta.png" 
+                             alt="Ragu Cream Pasta" 
+                             class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Ragu Cream Pasta</h3>
+                        <p class="text-light mb-4">Rich and creamy ragu sauce tossed with al dente pasta, topped with freshly grated cheese.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl text-white mb-4">
+                    Our <span class="text-accent">Space</span>
+                </h2>
+                <p class="text-light max-w-2xl mx-auto">
+                    Step inside our cozy yet modern space where analog charm meets contemporary comfort
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514933651103-2e7494a14d63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Restaurant interior" 
+                         class="w-full h-64 object-cover rounded-lg">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Bar area" 
+                         class="w-full h-64 object-cover rounded-lg">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Dining area" 
+                         class="w-full h-64 object-cover rounded-lg">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" 
+                         alt="Kitchen view" 
+                         class="w-full h-64 object-cover rounded-lg">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Private dining" 
+                         class="w-full h-64 object-cover rounded-lg">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554679665-f5537f187268?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Outdoor seating" 
+                         class="w-full h-64 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="font-display text-4xl md:text-5xl text-white mb-8">
+                        Visit <span class="text-accent">Us</span>
+                    </h2>
+                    
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-accent mr-3"></i> Address
+                        </h3>
+                        <p class="text-light text-lg">
+                            Anguk<br>
+                            90-1 Samcheong-ro, Seoul, South Korea<br>
+                            안국<br>
+                            삼청로 90-1, 서울, 대한민국
+                        </p>
+                    </div>
+                    
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                            <i class="fas fa-clock text-accent mr-3"></i> Opening Hours
+                        </h3>
+                        <p class="text-light text-lg">
+                            Everyday: 11:00 - 22:00
+                        </p>
+                    </div>
+                    
+                    <div class="mb-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                            <!-- Contact section removed as requested -->
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <!-- Google Maps section removed as requested -->
+                    </div>
+                    
+                    <!-- Map removed as requested -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="font-display text-4xl md:text-5xl text-white mb-8">
+                        Make a <span class="text-primary">Reservation</span>
+                    </h2>
+                    <p class="text-light mb-8">
+                        Reserve your table for an unforgettable meatball experience. For parties larger than 6, please call us directly.
+                    </p>
+                    
+                    <form class="reservation-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-light mb-2">Full Name</label>
+                                <input type="text" 
+                                       class="w-full py-3 px-4 rounded-lg" 
+                                       placeholder="Your name" 
+                                       required>
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2">Email</label>
+                                <input type="email" 
+                                       class="w-full py-3 px-4 rounded-lg" 
+                                       placeholder="your@email.com" 
+                                       required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-light mb-2">Phone Number</label>
+                                <input type="tel" 
+                                       class="w-full py-3 px-4 rounded-lg" 
+                                       placeholder="+82 10 1234 5678" 
+                                       required>
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2">Party Size</label>
+                                <select class="w-full py-3 px-4 rounded-lg">
+                                    <option>1 person</option>
+                                    <option>2 people</option>
+                                    <option>3 people</option>
+                                    <option>4 people</option>
+                                    <option>5 people</option>
+                                    <option>6 people</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-light mb-2">Date</label>
+                                <input type="date" 
+                                       class="w-full py-3 px-4 rounded-lg" 
+                                       required>
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2">Time</label>
+                                <select class="w-full py-3 px-4 rounded-lg">
+                                    <option>5:00 PM</option>
+                                    <option>5:30 PM</option>
+                                    <option>6:00 PM</option>
+                                    <option>6:30 PM</option>
+                                    <option>7:00 PM</option>
+                                    <option>7:30 PM</option>
+                                    <option>8:00 PM</option>
+                                    <option>8:30 PM</option>
+                                    <option>9:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-light mb-2">Special Requests</label>
+                            <textarea class="w-full py-3 px-4 rounded-lg" rows="4" placeholder="Dietary restrictions, celebrations, etc."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-4 px-6 rounded-lg transition duration-300">
+                            Reserve Your Table
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold mb-4">
+                        <span class="text-accent">Meatball</span> <span class="text-white">Lounge</span> 
+                        <span class="text-primary">×</span> 
+                        <span class="text-white">Analog</span> <span class="text-accent">Kitchen</span>
+                    </div>
+                    <p class="text-light">
+                        Fusion meatball dining in the heart of Seoul
+                    </p>
+                </div>
+                <!-- Social media icons removed as requested -->
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-light">
+                <p>&copy; 2025 Meatball Lounge x Analog Kitchen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Form submission
+        document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your reservation request! We will confirm shortly.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
