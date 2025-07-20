@@ -28,8 +28,9 @@
     <style>
         .hero-bg {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/Meatball lounge pink balloon.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
         }
         
         .menu-item:hover .menu-overlay {
@@ -111,9 +112,6 @@
                 <a href="#gallery" class="text-light hover:text-accent transition">Gallery</a>
                 <a href="#contact" class="text-light hover:text-accent transition">Contact</a>
             </div>
-            <button class="md:hidden text-light">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
         </div>
     </nav>
 
@@ -174,7 +172,7 @@
     <!-- 'Signature Meatballs' section and its description removed as requested -->
 
     <!-- Pasta Menu Section -->
-    <section id="pasta-menu" class="py-20 bg-secondary bg-opacity-95">
+    <section id="menu" class="py-20 bg-secondary bg-opacity-95">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="font-display text-4xl md:text-5xl text-white mb-4">
@@ -185,28 +183,31 @@
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+                <div class="text-center mb-8 w-full">
+                    <h3 class="text-2xl font-bold text-accent">Best Sellers</h3>
+                </div>
                 <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 400px;">
                     <div class="relative">
                         <!-- Replace the src below with the actual image path if uploaded -->
-                        <img src="Images/ragu-cream-pasta.png" 
-                             alt="Ragu Cream Pasta" 
-                             class="w-full h-64 object-cover">
+                        <img src="Images/meatball pasta.png" 
+                             alt="Meatball Pasta" 
+                             class="w-full">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Ragu Cream Pasta</h3>
-                        <p class="text-light mb-4">Rich and creamy ragu sauce tossed with al dente pasta, topped with freshly grated cheese.</p>
+                        <h3 class="text-xl font-bold text-white mb-2">Meatball Pasta</h3>
+                        <p class="text-light mb-4">Succulent meatballs nestled in perfectly al dente pasta, smothered in our signature creamy sauce and finished with a generous sprinkle of aged parmesan. A comforting classic with a gourmet twist.</p>
                     </div>
                 </div>
                 
                 <!-- Steak with Mash Potatoes -->
                 <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 400px;">
                     <div class="relative">
-                        <img src="Images/meatball lounge steak.png" 
-                             alt="Steak with Mash Potatoes" 
-                             class="w-full h-64 object-cover">
+                        <img src="Images/mushroom cream risotto.png" 
+                             alt="Mushroom Cream Risotto" 
+                             class="w-full">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Steak with Mash Potatoes</h3>
+                        <h3 class="text-xl font-bold text-white mb-2">Mushroom Cream Risotto</h3>
                         <p class="text-light mb-4">Perfectly grilled steak served with creamy mashed potatoes and seasonal vegetables.</p>
                     </div>
                 </div>
@@ -277,7 +278,7 @@
                     </div>
                     
                     <!-- Map removed as requested -->
-                    </div>
+                        </div>
                     <!-- Contact Us Section -->
                     <div class="mb-10">
                         <h3 class="text-xl font-bold text-white mb-4 flex items-center">
@@ -292,5 +293,21 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
