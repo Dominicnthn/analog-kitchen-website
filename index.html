@@ -27,9 +27,9 @@
     </script>
     <style>
         .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/Meatball lounge pink balloon.png');
-            background-size: contain;
-            background-position: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Images/analog kitchen led.png');
+            background-size: cover;
+            background-position: center 10%;
             background-repeat: no-repeat;
         }
         
@@ -98,7 +98,7 @@
     </style>
 </head>
 <body class="bg-secondary text-light font-body">
-    <!-- Navigation -->
+    <!-- 1. Navigation Bar Improvements -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="text-2xl font-bold">
@@ -106,27 +106,52 @@
                 <span class="text-primary">×</span> 
                 <span class="text-white">Analog</span> <span class="text-accent">Kitchen</span>
             </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-light hover:text-accent transition">About</a>
-                <a href="#menu" class="text-light hover:text-accent transition">Menu</a>
-                <a href="#gallery" class="text-light hover:text-accent transition">Gallery</a>
-                <a href="#contact" class="text-light hover:text-accent transition">Contact</a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu" class="md:hidden text-light text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Updated Navigation Links -->
+            <div id="nav-links" class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-light hover:text-accent transition relative">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300"></span>
+                </a>
+                <a href="#menu" class="nav-link text-light hover:text-accent transition relative">
+                    Menu
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300"></span>
+                </a>
+                <a href="#gallery" class="nav-link text-light hover:text-accent transition relative">
+                    Gallery
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300"></span>
+                </a>
+                <a href="#contact-us" class="nav-link text-light hover:text-accent transition relative">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300"></span>
+                </a>
             </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-nav" class="hidden md:hidden bg-secondary py-4">
+            <a href="#about" class="block py-3 px-8 text-light hover:bg-primary transition">About</a>
+            <a href="#menu" class="block py-3 px-8 text-light hover:bg-primary transition">Menu</a>
+            <a href="#gallery" class="block py-3 px-8 text-light hover:bg-primary transition">Gallery</a>
+            <a href="#contact-us" class="block py-3 px-8 text-light hover:bg-primary transition">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center text-center">
-        <div class="container mx-auto px-4 py-20">
-            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white mb-6">
+    <section class="hero-bg min-h-screen flex flex-col justify-start text-center relative">
+        <div class="container mx-auto px-4 flex flex-col min-h-screen">
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white mb-6 mt-8 md:mt-16 lg:mt-20">
                 <span class="block">Meatball Lounge</span>
                 <span class="text-primary">×</span>
                 <span class="block">Analog Kitchen</span>
             </h1>
-            <p class="text-xl md:text-2xl text-light max-w-3xl mx-auto mb-10">
+            <div style="height: 18vw; min-height: 120px; max-height: 300px;"></div>
+            <p class="text-xl md:text-2xl text-light max-w-3xl mx-auto mb-10 mt-12 md:mt-20 lg:mt-28">
                 Where modern Seoul meets cozy comfort in every meatball fusion dish
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8 mt-4 md:mt-8 lg:mt-12">
                 <a href="#menu" class="bg-primary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-full transition duration-300">
                     Explore Our Menu
                 </a>
@@ -138,12 +163,7 @@
     <section id="about" class="py-20 bg-secondary">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
-                    <h3 class="text-2xl font-bold text-white mb-4">Hall of Fame</h3>
-                    <img src="Images/meatball-hall-of-fame.jpg" alt="Meatball Lounge Hall of Fame">
-
-
-                </div>
+                <!-- Hall of Fame section removed as requested -->
                 <div class="lg:w-1/2">
                     <h2 class="font-display text-4xl md:text-5xl text-white mb-6">
                         Our <span class="text-accent">Vibe</span>
@@ -154,90 +174,106 @@
                     <p class="text-lg text-light mb-6">
                         We specialize in innovative meatball fusion dishes that combine traditional Korean flavors with global culinary techniques. Each meatball is handcrafted with premium ingredients and served with creative accompaniments that elevate this humble comfort food to an art form.
                     </p>
-
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <!-- 'Signature Meatballs' section and its description removed as requested -->
-
-    <!-- Pasta Menu Section -->
+    <!-- 2. Enhanced Menu Section (add third best seller) -->
     <section id="menu" class="py-20 bg-secondary bg-opacity-95">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-5xl text-white mb-4">
-                    <span class="text-primary">Menu</span>
-                </h2>
+                <h3 class="text-2xl font-bold text-accent mb-4">Best Sellers</h3>
                 <p class="text-light max-w-2xl mx-auto">
                     Discover our signature pasta dish, crafted with care and premium ingredients.
                 </p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-                <div class="text-center mb-8 w-full">
-                    <h3 class="text-2xl font-bold text-accent">Best Sellers</h3>
-                </div>
-                <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 400px;">
-                    <div class="relative">
-                        <!-- Replace the src below with the actual image path if uploaded -->
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 300px;">
+                    <div class="relative aspect-[2/3]">
                         <img src="Images/meatball pasta.png" 
                              alt="Meatball Pasta" 
-                             class="w-full">
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Meatball Pasta</h3>
                         <p class="text-light mb-4">Succulent meatballs nestled in perfectly al dente pasta, smothered in our signature creamy sauce and finished with a generous sprinkle of aged parmesan. A comforting classic with a gourmet twist.</p>
                     </div>
                 </div>
-                
+                <!-- New Best Seller Card -->
+                <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 300px;">
+                    <div class="relative aspect-[2/3]">
+                        <img src="Images/meatball platter.png" alt="Meatball Platter" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Meatball Platter</h3>
+                        <p class="text-light mb-4">Meatball & French fries (Tomato or Demiglace or Jalapeno cream). Crispy fries paired with juicy meatballs, served with your choice of sauce for the perfect comfort food snack or meal.</p>
+                    </div>
+                </div>
                 <!-- Steak with Mash Potatoes -->
-                <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 400px;">
-                    <div class="relative">
+                <div class="menu-item bg-secondary rounded-xl overflow-hidden shadow-lg relative mx-auto" style="max-width: 300px;">
+                    <div class="relative aspect-[2/3]">
                         <img src="Images/mushroom cream risotto.png" 
                              alt="Mushroom Cream Risotto" 
-                             class="w-full">
+                             class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Mushroom Cream Risotto</h3>
-                        <p class="text-light mb-4">Perfectly grilled steak served with creamy mashed potatoes and seasonal vegetables.</p>
+                        <p class="text-light mb-4">A rich and velvety Italian-style risotto, made with creamy Arborio rice, sautéed mushrooms, and a touch of parmesan for a deep, earthy flavor in every bite.</p>
+                        <a href="Meatball lounge full menu.pdf" target="_blank" class="inline-block bg-primary hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded-full transition duration-300 mt-6">View Full Menu</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <!-- 'Our Space' section and restaurant interior images removed as requested -->
+    <!-- 3. Interactive Gallery Section (lightbox) -->
+    <section id="gallery" class="py-20 bg-secondary bg-opacity-95">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl text-white mb-4">Gallery</h2>
+            </div>
+            <div class="gallery-grid mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 justify-center max-w-2xl mx-auto">
+                <a href="Images/Meatball lounge interior 1.png" class="gallery-item">
+                    <div class="aspect-[2/3] w-full max-w-xs mx-auto">
+                        <img src="Images/Meatball lounge interior 1.png" alt="Interior 1" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </a>
+                <a href="Images/meatball lounge interior 2.png" class="gallery-item">
+                    <div class="aspect-[2/3] w-full max-w-xs mx-auto">
+                        <img src="Images/meatball lounge interior 2.png" alt="Interior 2" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </a>
+                <a href="Images/meatball lounge outside.png" class="gallery-item">
+                    <div class="aspect-[2/3] w-full max-w-xs mx-auto">
+                        <img src="Images/meatball lounge outside.png" alt="Exterior" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </a>
+                <a href="Images/meatball lounge pink balloon.png" class="gallery-item">
+                    <div class="aspect-[2/3] w-full max-w-xs mx-auto">
+                        <img src="Images/meatball lounge pink balloon.png" alt="Pink Balloon" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Lightbox Container -->
+        <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
+            <img id="lightbox-img" class="max-w-4xl max-h-screen">
+            <button id="close-lightbox" class="absolute top-6 right-6 text-white text-3xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-secondary bg-opacity-95">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <h2 class="font-display text-4xl md:text-5xl text-white mb-8">
-                        Restaurant <span class="text-accent">Interior</span>
-                    </h2>
-                    
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <i class="fas fa-home text-accent mr-3"></i> Our Space
-                        </h3>
-                        <p class="text-light text-lg">
-                            Experience our cozy yet modern interior with warm lighting, exposed brick walls, and analog-inspired decor that creates an inviting atmosphere for any occasion.
-                        </p>
-                        <img src="Images/Meatball lounge interior 1.png" 
-                             alt="Restaurant Interior" 
-                             class="w-full rounded-lg mt-4">
-                        <img src="Images/meatball lounge interior 2.png" 
-                             alt="Restaurant Interior 2" 
-                             class="w-full rounded-lg mt-4">
-                    </div>
-                    
+                <div class="w-full flex flex-col">
+                    <div id="contact-us" class="mb-10">
                     <h2 class="font-display text-4xl md:text-5xl text-white mb-8">
                         Visit <span class="text-accent">Us</span>
                     </h2>
-                    
                     <div class="mb-10">
                         <h3 class="text-xl font-bold text-white mb-4 flex items-center">
                             <i class="fas fa-map-marker-alt text-accent mr-3"></i> Address
@@ -249,43 +285,68 @@
                             삼청로 90-1, 서울, 대한민국
                         </p>
                     </div>
-                    
                     <div class="mb-10">
                         <h3 class="text-xl font-bold text-white mb-4 flex items-center">
                             <i class="fas fa-clock text-accent mr-3"></i> Opening Hours
                         </h3>
                         <p class="text-light text-lg">
-                            Everyday: 11:00 - 22:00
+                                Weekdays: 11:00-21:00<br>
+                                Weekends: 11:30-21:00
                         </p>
                     </div>
-                    
                     <div class="mb-10">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <!-- Contact section removed as requested -->
+                            <h3 class="text-xl font-bold text-white mb-4">Contact Us</h3>
+                            <p class="text-light text-lg mb-4">
+                                Instagram: meatballloung_x_analogkitchen
+                            </p>
+                            <p class="text-light text-lg mb-4">
+                                Phone: 0507-1391-7703
                         </p>
-                    </div>
-                    
-                    <div class="mt-8">
-                        <!-- Google Maps section removed as requested -->
-                    </div>
-                    
-                    <!-- Map removed as requested -->
+                            <p class="text-light text-lg">
+                                미트볼라운지 X 아날로그키친 삼청점<br>
+                                서울 종로구 삼청로 89 미트볼라운지x아날로그키친 삼청점<br>
+                                <a href="https://naver.me/Gz5gBmPS" class="text-accent underline" target="_blank">https://naver.me/Gz5gBmPS</a>
+                            </p>
                         </div>
-                    <!-- Contact Us Section -->
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            Contact Us
-                        </h3>
-                        <p class="text-light text-lg">
-                            Instagram: meatballloung_x_analogkitchen
-                        </p>
                     </div>
                 </div>
-                <!-- End of left column (Visit Us and Contact Us) -->
+                <!-- Removed Make a Reservation section and reservation form as requested -->
             </div>
         </div>
     </section>
 
+    <!-- 5. Footer Section -->
+    <footer class="bg-secondary py-12 border-t border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">Hours</h3>
+                    <p class="text-light">Weekdays: 11:00-21:00</p>
+                    <p class="text-light">Weekends: 11:30-21:00</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-light">0507-1391-7703</p>
+                    <p class="text-light">meatballloung_x_analogkitchen</p>
+                </div>
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">Location</h3>
+                    <p class="text-light">90-1 Samcheong-ro, Anguk</p>
+                    <p class="text-light">Seoul, South Korea</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <div class="flex justify-center mb-6">
+                    <a href="https://instagram.com/meatballloung_x_analogkitchen" target="_blank" class="text-light hover:text-accent text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <p class="text-light">&copy; 2025 Meatball Lounge x Analog Kitchen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 6. JavaScript Enhancements -->
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -300,6 +361,70 @@
                 }
             });
         });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.classList.toggle('hidden');
+        });
+
+        // Lightbox Gallery
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                lightboxImg.src = this.href;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        // Close Lightbox
+        document.getElementById('close-lightbox').addEventListener('click', function() {
+            document.getElementById('lightbox').classList.add('hidden');
+        });
+
+        // Active Navigation Highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('text-accent');
+                link.classList.add('text-light');
+                if(link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-accent');
+                    link.classList.remove('text-light');
+                }
+            });
+        });
     </script>
+
+    <!-- 7. Additional CSS Improvements -->
+    <style>
+        #mobile-nav {
+            transition: all 0.3s ease;
+        }
+        .menu-item {
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        .nav-link.text-accent span {
+            width: 100%;
+        }
+        .reservation-form input:focus,
+        .reservation-form select:focus,
+        .reservation-form textarea:focus {
+            box-shadow: 0 0 0 2px #D9A566;
+        }
+    </style>
 </body>
 </html>
